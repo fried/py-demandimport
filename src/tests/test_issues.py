@@ -86,8 +86,6 @@ class TestIssues(unittest.TestCase):
                 __import__(m.name+'.a.c', locals={'foo': 'bar'}).a.c.__name__
 
     def test_issue3_hook(self):
-        if sys.version_info[0] >= 3:
-            return
         with TestModule() as m:
             with open(os.path.join(m.path, '__init__.py'), 'a') as f:
                 f.write(import_hook)
